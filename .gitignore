@@ -29,6 +29,8 @@ build/
 *.key
 *serviceAccount*.json
 credentials.json
+**/android/app/google-services.json
+**/lib/firebase_options.dart
 
 # IDE and OS noise
 .DS_Store
