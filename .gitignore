@@ -1,0 +1,42 @@
+# Workspace-local tooling
+.dart-appdata/
+.jdks/
+.agents/
+.codex/
+**/.tools/
+
+# Generated build output
+build/
+**/build/
+**/.artifacts/
+**/.dart_tool/
+**/.gradle/
+**/android/.gradle/
+**/ios/Flutter/ephemeral/
+**/windows/flutter/ephemeral/
+**/linux/flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+
+# Dependencies restored by package managers
+**/node_modules/
+**/.npm-cache/
+
+# Local configuration and secrets
+.env
+.env.*
+*.pem
+*.p12
+*.key
+*serviceAccount*.json
+credentials.json
+
+# IDE and OS noise
+.DS_Store
+Thumbs.db
+*.log
+
+# Local UI verification captures
+nokofastfood/customer_*.png
+nokofastfood/customer_window.xml
+nokofastfood/noko_final_*.png
+nokofastfood/noko_no_facebook.png

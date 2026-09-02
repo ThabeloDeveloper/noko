@@ -1,0 +1,159 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function role() {
+      return signedIn() ? userDoc(request.auth.uid).data.role : null;
+    }
+
+    function isAdmin() {
+      return role() == 'admin';
+    }
+
+    function isCustomer() {
+      return role() == 'customer';
+    }
+
+    function isDriver() {
+      return role() == 'driver';
+    }
+
+    function isParticipant() {
+      return signedIn()
+        && (resource.data.senderId == request.auth.uid
+          || resource.data.receiverId == request.auth.uid);
+    }
+
+    match /users/{userId} {
+      allow create: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.data.role == 'customer';
+      allow read: if signedIn()
+        && (
+          request.auth.uid == userId
+          || isAdmin()
+          || isDriver()
+        );
+      allow update: if signedIn()
+        && (
+          isAdmin()
+          || (
+            request.auth.uid == userId
+            && request.resource.data.role == resource.data.role
+          )
+        );
+      allow delete: if isAdmin();
+    }
+
+    match /restaurants/{restaurantId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /menuCategories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /appSettings/{settingsId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /orders/{orderId} {
+      allow create: if isCustomer()
+        && request.resource.data.customerId == request.auth.uid
+        && request.resource.data.status == 'pending'
+        && request.resource.data.paymentStatus in ['pending', 'paid']
+        && request.resource.data.verificationCode is string;
+      allow read: if signedIn()
+        && (
+          resource.data.customerId == request.auth.uid
+          || (
+            isDriver()
+            && resource.data.driverId == request.auth.uid
+            && resource.data.fulfillmentType == 'delivery'
+          )
+          || isAdmin()
+        );
+      allow update: if isAdmin()
+        || (
+          isCustomer()
+          && resource.data.customerId == request.auth.uid
+          && resource.data.status in ['pending', 'preparing']
+          && request.resource.data.status == 'cancelled'
+        );
+      allow delete: if isAdmin();
+    }
+
+    match /promoCodes/{promoId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isCustomer()
+        && request.resource.data.customerId == request.auth.uid
+        && request.resource.data.rating is number
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5;
+      allow update, delete: if isAdmin()
+        || (
+          isCustomer()
+          && resource.data.customerId == request.auth.uid
+        );
+    }
+
+    match /reviewReports/{reportId} {
+      allow create: if isCustomer()
+        && request.resource.data.reporterId == request.auth.uid
+        && request.resource.data.reviewId is string
+        && request.resource.data.reason is string;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /manualRefundRequests/{requestId} {
+      allow read: if signedIn()
+        && (
+          resource.data.customerId == request.auth.uid
+          || isAdmin()
+        );
+      allow write: if isAdmin();
+    }
+
+    match /messages/{messageId} {
+      allow create: if signedIn()
+        && request.resource.data.senderId == request.auth.uid
+        && request.resource.data.text is string
+        && (
+          request.resource.data.text.size() > 0
+          || request.resource.data.attachmentUrl is string
+        )
+        && request.resource.data.text.size() <= 2000;
+      allow read: if isParticipant();
+      allow update: if signedIn()
+        && resource.data.receiverId == request.auth.uid
+        && request.resource.data.diff(resource.data).changedKeys()
+          .hasOnly(['readAt']);
+      allow delete: if false;
+    }
+
+    match /notificationCampaigns/{campaignId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

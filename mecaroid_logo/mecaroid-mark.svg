@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">Mecaroid mark</title>
+  <desc id="desc">Standalone Mecaroid receipt-inspired M mark in charcoal, burgundy, and gold.</desc>
+  <defs>
+    <linearGradient id="goldSheen" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e4cd8c"/>
+      <stop offset="0.5" stop-color="#c9a24b"/>
+      <stop offset="1" stop-color="#9f7b2f"/>
+    </linearGradient>
+    <linearGradient id="burgundyDepth" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#9c2f45"/>
+      <stop offset="1" stop-color="#5c1a27"/>
+    </linearGradient>
+    <filter id="softShadow" x="-24%" y="-24%" width="148%" height="148%">
+      <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#0c0b0f" flood-opacity="0.38"/>
+    </filter>
+    <mask id="receiptMask">
+      <rect x="0" y="0" width="280" height="280" fill="#fff"/>
+      <g fill="#000">
+        <circle cx="28" cy="0" r="12"/>
+        <circle cx="63" cy="0" r="12"/>
+        <circle cx="98" cy="0" r="12"/>
+        <circle cx="133" cy="0" r="12"/>
+        <circle cx="168" cy="0" r="12"/>
+        <circle cx="203" cy="0" r="12"/>
+        <circle cx="238" cy="0" r="12"/>
+        <circle cx="28" cy="280" r="12"/>
+        <circle cx="63" cy="280" r="12"/>
+        <circle cx="98" cy="280" r="12"/>
+        <circle cx="133" cy="280" r="12"/>
+        <circle cx="168" cy="280" r="12"/>
+        <circle cx="203" cy="280" r="12"/>
+        <circle cx="238" cy="280" r="12"/>
+      </g>
+    </mask>
+  </defs>
+
+  <rect width="400" height="400" fill="#17161b"/>
+  <g transform="translate(60 60)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="280" height="280" rx="4" fill="#201e24" mask="url(#receiptMask)"/>
+    <rect x="12" y="14" width="256" height="252" rx="3" fill="none" stroke="#c9a24b" stroke-width="6" mask="url(#receiptMask)"/>
+    <rect x="35" y="49" width="210" height="45" rx="2" fill="url(#burgundyDepth)"/>
+    <path d="M61 75H107M129 75H219" fill="none" stroke="#e4cd8c" stroke-width="6" stroke-linecap="square"/>
+    <path d="M53 122H119M142 122H228M53 151H101M129 151H228" fill="none" stroke="#706a63" stroke-width="6" stroke-linecap="square" stroke-dasharray="20 13"/>
+    <path d="M57 210V136H90L140 196L190 136H223V210H188V178L147 229H133L92 178V210Z" fill="url(#goldSheen)"/>
+    <path d="M112 124H168" stroke="#c9a24b" stroke-width="9" stroke-linecap="square"/>
+    <circle cx="102" cy="114" r="7" fill="#e4cd8c"/>
+    <circle cx="178" cy="114" r="7" fill="#e4cd8c"/>
+    <path d="M140 42V25M140 25H170" fill="none" stroke="#c9a24b" stroke-width="6" stroke-linecap="square"/>
+    <circle cx="180" cy="25" r="8" fill="#9c2f45" stroke="#c9a24b" stroke-width="4"/>
+    <path d="M55 242H225" stroke="#706a63" stroke-width="5" stroke-linecap="square" stroke-dasharray="9 10"/>
+  </g>
+</svg>

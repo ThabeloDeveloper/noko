@@ -1,0 +1,150 @@
+{
+  "restaurants": {
+    "noko_main_kitchen": {
+      "name": "Noko Main Kitchen",
+      "phone": "+27000000001",
+      "address": "Polokwane Central, Polokwane, Limpopo",
+      "location": "Polokwane Central",
+      "imageUrl": "",
+      "latitude": -23.9045,
+      "longitude": 29.4689,
+      "isOpen": true,
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    "noko_north_branch": {
+      "name": "Noko North Branch",
+      "phone": "+27000000002",
+      "address": "Bendor, Polokwane, Limpopo",
+      "location": "Bendor",
+      "imageUrl": "",
+      "latitude": -23.8678,
+      "longitude": 29.4898,
+      "isOpen": true,
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    }
+  },
+  "products": {},
+  "promoCodes": {
+    "WELCOME10": {
+      "code": "WELCOME10",
+      "type": "percent",
+      "value": 10,
+      "minSubtotal": 100,
+      "active": true,
+      "expiresAt": "2026-12-31T21:59:59.000Z",
+      "title": "Welcome 10% Off",
+      "description": "Save 10% on your first qualifying order.",
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    "FREEDELIVERY": {
+      "code": "FREEDELIVERY",
+      "type": "fixed",
+      "value": 25,
+      "minSubtotal": 150,
+      "active": true,
+      "expiresAt": "2026-12-31T21:59:59.000Z",
+      "title": "Free Delivery",
+      "description": "Delivery fee discount for qualifying orders.",
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    }
+  },
+  "users": {
+    "admin_demo": {
+      "id": "admin_demo",
+      "name": "Thabelo Nevhuduli",
+      "phone": "+27000000010",
+      "email": "thabelonevhuduli@gmail.com",
+      "role": "admin",
+      "fcmToken": "",
+      "savedAddresses": [],
+      "favoriteProductIds": [],
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    "driver_demo": {
+      "id": "driver_demo",
+      "name": "Demo Driver",
+      "phone": "+27000000020",
+      "email": "driver@noko.local",
+      "role": "driver",
+      "driverStatus": "available",
+      "isOnline": false,
+      "fcmToken": "",
+      "savedAddresses": [],
+      "favoriteProductIds": [],
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    },
+    "customer_demo": {
+      "id": "customer_demo",
+      "name": "Demo Customer",
+      "phone": "+27000000030",
+      "email": "customer@noko.local",
+      "role": "customer",
+      "fcmToken": "",
+      "savedAddresses": [
+        {
+          "id": "home",
+          "label": "Home",
+          "address": "Polokwane Central, Polokwane, Limpopo",
+          "latitude": -23.9045,
+          "longitude": 29.4689,
+          "isDefault": true,
+          "createdAt": "2026-08-14T00:00:00.000Z"
+        }
+      ],
+      "favoriteProductIds": [],
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    }
+  },
+  "orders": {},
+  "reviews": {},
+  "reviewReports": {},
+  "messages": {},
+  "notificationCampaigns": {},
+  "manualRefundRequests": {},
+  "appSettings": {
+    "delivery": {
+      "deliveryFee": 25,
+      "deliveryRadiusKm": 25,
+      "currency": "ZAR",
+      "cashOnDeliveryEnabled": true,
+      "peachPaymentsEnabled": true,
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    }
+  },
+  "menuCategories": {
+    "meals": {
+      "name": "Meals",
+      "sortOrder": 1,
+      "active": true,
+      "restaurantIds": [
+        "noko_main_kitchen",
+        "noko_north_branch"
+      ]
+    },
+    "burgers": {
+      "name": "Burgers",
+      "sortOrder": 2,
+      "active": true,
+      "restaurantIds": [
+        "noko_main_kitchen",
+        "noko_north_branch"
+      ]
+    },
+    "drinks": {
+      "name": "Drinks",
+      "sortOrder": 3,
+      "active": true,
+      "restaurantIds": [
+        "noko_main_kitchen",
+        "noko_north_branch"
+      ]
+    }
+  }
+}

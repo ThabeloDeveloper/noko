@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Mecaroid logo</title>
+  <desc id="desc">A charcoal, burgundy, and gold Mecaroid logo with a receipt-inspired digital menu mark.</desc>
+  <defs>
+    <linearGradient id="goldSheen" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e4cd8c"/>
+      <stop offset="0.48" stop-color="#c9a24b"/>
+      <stop offset="1" stop-color="#9f7b2f"/>
+    </linearGradient>
+    <linearGradient id="burgundyDepth" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#9c2f45"/>
+      <stop offset="1" stop-color="#5c1a27"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#0c0b0f" flood-opacity="0.35"/>
+    </filter>
+    <mask id="receiptMask">
+      <rect x="0" y="0" width="240" height="240" fill="#fff"/>
+      <g fill="#000">
+        <circle cx="24" cy="0" r="10"/>
+        <circle cx="54" cy="0" r="10"/>
+        <circle cx="84" cy="0" r="10"/>
+        <circle cx="114" cy="0" r="10"/>
+        <circle cx="144" cy="0" r="10"/>
+        <circle cx="174" cy="0" r="10"/>
+        <circle cx="204" cy="0" r="10"/>
+        <circle cx="24" cy="240" r="10"/>
+        <circle cx="54" cy="240" r="10"/>
+        <circle cx="84" cy="240" r="10"/>
+        <circle cx="114" cy="240" r="10"/>
+        <circle cx="144" cy="240" r="10"/>
+        <circle cx="174" cy="240" r="10"/>
+        <circle cx="204" cy="240" r="10"/>
+      </g>
+    </mask>
+    <style>
+      .display { font-family: Fraunces, Georgia, 'Times New Roman', serif; font-weight: 700; }
+      .mono { font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace; font-weight: 600; }
+    </style>
+  </defs>
+
+  <g transform="translate(76 60)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="240" height="240" rx="4" fill="#201e24" mask="url(#receiptMask)"/>
+    <rect x="10" y="12" width="220" height="216" rx="3" fill="none" stroke="#c9a24b" stroke-width="5" mask="url(#receiptMask)"/>
+    <rect x="30" y="42" width="180" height="38" rx="2" fill="url(#burgundyDepth)"/>
+    <path d="M52 64H91M110 64H188" fill="none" stroke="#e4cd8c" stroke-width="5" stroke-linecap="square"/>
+    <path d="M46 104H102M122 104H194M46 128H86M110 128H194" fill="none" stroke="#706a63" stroke-width="5" stroke-linecap="square" stroke-dasharray="18 12"/>
+    <path d="M49 180V116H76L120 168L164 116H191V180H162V153L126 196H114L78 153V180Z" fill="url(#goldSheen)"/>
+    <path d="M96 106H144" stroke="#c9a24b" stroke-width="8" stroke-linecap="square"/>
+    <circle cx="88" cy="98" r="6" fill="#e4cd8c"/>
+    <circle cx="152" cy="98" r="6" fill="#e4cd8c"/>
+    <path d="M120 36V22M120 22H145" fill="none" stroke="#c9a24b" stroke-width="5" stroke-linecap="square"/>
+    <circle cx="153" cy="22" r="7" fill="#9c2f45" stroke="#c9a24b" stroke-width="3"/>
+    <path d="M47 208H193" stroke="#706a63" stroke-width="4" stroke-linecap="square" stroke-dasharray="8 9"/>
+  </g>
+
+  <g transform="translate(372 86)">
+    <text x="0" y="93" class="display" font-size="88" letter-spacing="3" fill="#efe7d8">MECAROID</text>
+    <path d="M6 126H632" stroke="#c9a24b" stroke-width="3" stroke-dasharray="18 12"/>
+    <text x="4" y="164" class="mono" font-size="22" letter-spacing="8" fill="#a39c92">DIGITAL MENU SYSTEMS</text>
+    <g transform="translate(0 193)">
+      <rect x="0" y="0" width="58" height="8" fill="#7a2436"/>
+      <rect x="74" y="0" width="36" height="8" fill="#c9a24b"/>
+      <rect x="126" y="0" width="84" height="8" fill="#2a2730"/>
+    </g>
+  </g>
+</svg>

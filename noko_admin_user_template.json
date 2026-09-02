@@ -1,0 +1,16 @@
+{
+  "users": {
+    "REPLACE_WITH_ADMIN_AUTH_UID": {
+      "id": "REPLACE_WITH_ADMIN_AUTH_UID",
+      "name": "Thabelo Nevhuduli",
+      "phone": "+27",
+      "email": "thabelonevhuduli@gmail.com",
+      "role": "admin",
+      "fcmToken": "",
+      "savedAddresses": [],
+      "favoriteProductIds": [],
+      "createdAt": "2026-08-14T00:00:00.000Z",
+      "updatedAt": "2026-08-14T00:00:00.000Z"
+    }
+  }
+}

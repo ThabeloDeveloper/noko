@@ -1,0 +1,32 @@
+{
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "mecaroid-4dcf2",
+          "appId": "1:823795709540:android:f3ac75f0aed48244ac9171",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "mecaroid-4dcf2",
+          "configurations": {
+            "android": "1:823795709540:android:f3ac75f0aed48244ac9171",
+            "ios": "1:823795709540:ios:203643aaed4089c8ac9171",
+            "web": "1:823795709540:web:455a2c51e502ece8ac9171"
+          }
+        }
+      }
+    }
+  }
+}

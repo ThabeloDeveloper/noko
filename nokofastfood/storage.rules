@@ -1,0 +1,47 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userDoc(uid) {
+      return firestore.get(/databases/(default)/documents/users/$(uid));
+    }
+
+    function isApprovedAdminEmail() {
+      return signedIn()
+        && request.auth.token.email in [
+          'thabelodeveloper@gmail.com',
+          'thabelonevhuduli@gmail.com'
+        ];
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && (
+          userDoc(request.auth.uid).data.role == 'admin'
+          || isApprovedAdminEmail()
+        );
+    }
+
+    function isImageUpload() {
+      return request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /admin_uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin() && isImageUpload();
+    }
+
+    match /chat_attachments/{userId}/{fileName} {
+      allow read: if signedIn();
+      allow write: if signedIn()
+        && request.auth.uid == userId
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+  }
+}

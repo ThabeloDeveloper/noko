@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mecaroid Logo Preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --ink: #0c0b0f;
+      --charcoal: #17161b;
+      --charcoal-2: #201e24;
+      --burgundy: #7a2436;
+      --gold: #c9a24b;
+      --gold-soft: #e4cd8c;
+      --cream: #efe7d8;
+      --slate: #a39c92;
+      --line: rgba(239, 231, 216, 0.14);
+      --display: Fraunces, Georgia, serif;
+      --body: Inter, Arial, sans-serif;
+      --mono: "JetBrains Mono", Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--charcoal);
+      color: var(--cream);
+      font-family: var(--body);
+      padding: 48px;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-family: var(--display);
+      font-size: 42px;
+      line-height: 1.05;
+    }
+
+    p {
+      margin: 0;
+      color: var(--slate);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.4fr .7fr;
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--charcoal-2);
+      padding: 32px;
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+    }
+
+    .panel.light {
+      background: var(--cream);
+    }
+
+    .panel.burgundy {
+      background: linear-gradient(120deg, var(--burgundy), #5c1a27);
+    }
+
+    .logo {
+      width: min(100%, 760px);
+      height: auto;
+    }
+
+    .mark {
+      width: min(100%, 250px);
+      height: auto;
+    }
+
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .swatch {
+      height: 56px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .note {
+      margin-top: 28px;
+      border-top: 1px dashed var(--line);
+      padding-top: 20px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+      color: var(--slate);
+    }
+
+    @media (max-width: 800px) {
+      body { padding: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Logo kit</div>
+    <h1>Mecaroid</h1>
+    <p>Charcoal, burgundy, gold, and receipt-inspired digital menu language.</p>
+
+    <section class="grid" aria-label="Mecaroid logo previews">
+      <div class="panel">
+        <img class="logo" src="./mecaroid-logo.svg" alt="Mecaroid full logo">
+      </div>
+      <div class="panel">
+        <img class="mark" src="./mecaroid-mark.svg" alt="Mecaroid standalone mark">
+      </div>
+      <div class="panel light">
+        <img class="logo" src="./mecaroid-logo.svg" alt="Mecaroid full logo on cream">
+      </div>
+      <div class="panel burgundy">
+        <img class="mark" src="./mecaroid-mark.svg" alt="Mecaroid mark on burgundy">
+      </div>
+    </section>
+
+    <div class="swatches" aria-label="Theme color swatches">
+      <div class="swatch" style="background:#0c0b0f"></div>
+      <div class="swatch" style="background:#17161b"></div>
+      <div class="swatch" style="background:#201e24"></div>
+      <div class="swatch" style="background:#7a2436"></div>
+      <div class="swatch" style="background:#c9a24b"></div>
+      <div class="swatch" style="background:#efe7d8"></div>
+    </div>
+
+    <p class="note">Files: mecaroid-logo.svg and mecaroid-mark.svg</p>
+  </main>
+</body>
+</html>
